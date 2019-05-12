@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        let clock_degree = (time) => {
+
+            let [hour, minute] = time.split(":");
+            hour = parseInt(hour);
+            minute = parseInt(minute);
+
+            if ((hour > 23) || (minute > 59)) {
+                return "Check your time !"
+            };
+
+            hour = (hour / 12) < 1 ? hour : hour - 12;
+            return `${hour === 0 ? 360 : hour * 30}:${minute===0 ? 360: minute*6}`;
+
+        }
+
+        console.log(clock_degree('20:34'))
+    </script>
+
+</body>
+
+</html>
