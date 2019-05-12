@@ -1,0 +1,16 @@
+body {
+    position: relative;
+}
+
+
+.box {
+    height: 50px;
+    width: 50px;
+    border: 1px solid red;
+}
+
+.div-wrap, .p-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
