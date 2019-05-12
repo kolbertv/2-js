@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        let changeTime = (time, offset) => {
+
+            let [hour, minute] = time.split(':');
+            hour = parseInt(hour);
+            minute = parseInt(minute);
+            offset = parseInt(offset);
+
+            if (59 < offset) {
+                return 'введите кол-во минут не более 59'
+            }
+
+            if (offset > 0) {
+                if ((minute + offset) > 59) {
+                    hour = (hour + 1) > 23 ? 0 : hour + 1;
+                    minute = offset - (60 - minute);
+                } else if ((minute + offset) < 59) {
+                    minute = minute + offset;
+                }
+
+            }
+
+            if ((offset < 0)) {
+                if ((minute + offset) > 0) {
+                    minute = minute + offset;
+                } else if ((minute + offset) < 0) {
+                    hour = (hour - 1) < 0 ? 23 : hour - 1
+                    minute = 60 - minute + offset;
+                }
+
+            }
+
+            minute = minute.toString().split('').length < 2 ? `0${minute}` : minute
+            hour = hour.toString().split('').length < 2 ? `0${hour}` : hour
+            return `${hour}:${minute}`;
+        }
+
+        console.log(changeTime('23:59', 1));
+    </script>
+
+
+</body>
+
+</html>
