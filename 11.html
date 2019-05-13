@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Угадай число</p>
+    <input type="text" id="text" value="0">
+    <button id="button">Проверить</button>
+    <p id="result"></p>
+
+    <script>
+        const rand = () => {
+            return ~~(Math.random() * 100);
+        }
+        let randomNumber = rand();
+        button.addEventListener('click', () => {
+            document.getElementById('result').innerHTML = +text.value === randomNumber ? 'угадали число' :
+                +text.value > randomNumber ? 'Введенное число больше' : 'Введенное число меньше'
+            console.log('Загаданное число: ' + randomNumber)
+        })
+    </script>
+</body>
+
+</html>
